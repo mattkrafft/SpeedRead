@@ -28,3 +28,34 @@ document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT','BUTTON'
 try{db=await openDB();}catch{notify('Storage is unavailable; reading progress may not persist.');}
 try{const response=await fetch('books/carmen.json');if(!response.ok)throw Error('Could not load Carmen. Please reload.');const carmen=await response.json();library=[carmen];if(db){try{library.push(...await dbRequest('getAll'));}catch{notify('Saved books could not be opened.');}}renderLibrary();setBook(library.find(b=>b.id===storage.get('speedread.lastBook'))||carmen);}catch(e){$('position').textContent=e.message;}
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+
+// iPhone Home Screen apps do not reliably implement the Fullscreen API. This
+// viewport-filling focus mode keeps the reader controls usable in every browser.
+const focusStyles=document.createElement('style');
+focusStyles.textContent=`body.focus-mode-active{overflow:hidden}#readerView.focus-mode{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));overflow:auto}#readerView.focus-mode .bookbar,#readerView.focus-mode .settings,#readerView.focus-mode .context-head,#readerView.focus-mode .context,#readerView.focus-mode footer{display:none}#readerView.focus-mode .reader-card{flex:1;display:flex;flex-direction:column;width:100%;max-width:1100px;min-height:0;margin:auto;border:0;box-shadow:none}#readerView.focus-mode .word-stage{flex:1;height:auto;min-height:260px}#readerView.focus-mode .progress-area{padding-bottom:max(22px,env(safe-area-inset-bottom))}`;
+document.head.append(focusStyles);
+
+function setFocusMode(enabled){
+  const reader=$('readerView');
+  const button=$('fullscreen');
+  reader.classList.toggle('focus-mode',enabled);
+  document.body.classList.toggle('focus-mode-active',enabled);
+  button.textContent=enabled?'×':'⛶';
+  button.setAttribute('aria-label',enabled?'Exit focus mode':'Enter focus mode');
+  button.setAttribute('aria-pressed',String(enabled));
+  button.title=enabled?'Exit focus mode':'Focus mode';
+}
+
+const focusButton=$('fullscreen');
+focusButton.setAttribute('aria-label','Enter focus mode');
+focusButton.setAttribute('aria-pressed','false');
+focusButton.title='Focus mode';
+focusButton.onclick=()=>setFocusMode(!$('readerView').classList.contains('focus-mode'));
+$('readerNav').addEventListener('click',()=>setFocusMode(false));
+$('libraryNav').addEventListener('click',()=>setFocusMode(false));
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&$('readerView').classList.contains('focus-mode')){
+    event.preventDefault();
+    setFocusMode(false);
+  }
+});

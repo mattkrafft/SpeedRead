@@ -15,7 +15,7 @@ No account or login is required. On iPhone, open the link in Safari, then use **
 - Chapter selection, sentence rewind/advance, position slider and clickable context passage.
 - EPUB and TXT import, plus pasted text. No upload or account required by the app.
 - Imported books stored in IndexedDB; progress, settings and last opened book stored locally.
-- Light/dark themes and responsive phone/desktop layouts.
+- Light/dark themes, responsive layouts and an iPhone-compatible Focus Mode that fills the app without relying on the browser Fullscreen API.
 - Home Screen manifest and offline cache after a successful initial visit.
 - Reading pauses when the tab is hidden; supported browsers can keep the screen awake.
 
