@@ -2,6 +2,12 @@
 
 A free, browser-based RSVP reader inspired by one-word speed-reading apps, with its own design. Carmen by Prosper Mérimée is included and ready to read.
 
+## Open the app
+
+**[Open Speedread](https://speedread.mattkrafft.chatgpt.site)**
+
+The hosted preview requires you to sign in to ChatGPT. On iPhone, open the link in Safari, then use **Share → Add to Home Screen**.
+
 ## Features
 
 - One, two or three words at a time; 100–1,000 WPM.
