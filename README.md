@@ -6,7 +6,7 @@ A free, browser-based RSVP reader inspired by one-word speed-reading apps, with 
 
 **[Open Speedread](https://speedread.mattkrafft.chatgpt.site)**
 
-The hosted preview requires you to sign in to ChatGPT. On iPhone, open the link in Safari, then use **Share → Add to Home Screen**.
+No account or login is required. On iPhone, open the link in Safari, then use **Share → Add to Home Screen**.
 
 ## Features
 
