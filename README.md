@@ -4,7 +4,7 @@ A free, browser-based RSVP reader inspired by one-word speed-reading apps, with 
 
 ## Open the app
 
-**[Open Speedread](https://speedread.mattkrafft.chatgpt.site)**
+**[Open Speedread on GitHub Pages](https://mattkrafft.github.io/SpeedRead/)**
 
 No account or login is required. On iPhone, open the link in Safari, then use **Share → Add to Home Screen**.
 
@@ -45,7 +45,7 @@ Run `npm run check` and `npm test` with Node 22 or later. Browser/iPhone interac
 
 ## Hosting
 
-Upload `dist/` to a static HTTPS host. All asset URLs are relative, so repository subpaths work. To use GitHub Pages, configure a Pages deployment that publishes `dist/`; Pages is not enabled by this commit. The separately published ChatGPT Site uses `.openai/hosting.json`.
+GitHub Pages publishes `dist/` automatically after changes are merged into `main`. All asset URLs are relative so the reader works from the `/SpeedRead/` repository path. The previous ChatGPT Sites deployment remains available as a secondary mirror.
 
 ## Privacy and limits
 
