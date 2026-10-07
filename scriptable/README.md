@@ -16,5 +16,4 @@ Tap **Update iPhone widget** whenever you want to refresh the saved position imm
 
 EPUB files commonly identify a cover image in their package manifest. The supplied Carmen EPUB does this with both a `cover-image` manifest property and legacy cover metadata. SpeedRead publishes that image as `dist/books/carmen-cover.jpg`, and the app passes its public URL to Scriptable during an update. Scriptable downloads the cover once and caches it on the phone.
 
-Imported EPUB cover extraction is not yet connected to the widget. Those books still send their reading statistics, and the widget retains the previous cover or uses its fallback background. Automatically sharing an imported local cover would require a small private synchronization service because Scriptable cannot directly read Safari's IndexedDB or local storage.
-
+Imported EPUB cover extraction is not yet connected to the widget. Those books still send their reading statistics, and the widget uses its fallback background. Automatically sharing an imported local cover would require a small private synchronization service because Scriptable cannot directly read Safari's IndexedDB or local storage.
