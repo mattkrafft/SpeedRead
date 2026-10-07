@@ -41,6 +41,8 @@ async function saveIncomingData() {
     } catch (error) {
       console.warn(`Could not update the cover: ${error}`);
     }
+  } else if (fm.fileExists(coverPath)) {
+    fm.remove(coverPath);
   }
 
   return true;
@@ -112,4 +114,3 @@ if (config.runsInWidget) {
 }
 
 Script.complete();
-
