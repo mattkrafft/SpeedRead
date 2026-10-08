@@ -29,6 +29,10 @@ python -m http.server 8080 --directory dist
 
 Open http://localhost:8080. Do not open index.html as a file: module scripts and book loading need HTTP.
 
+## Scriptable widget
+
+The `scriptable` folder contains a small iPhone widget that shows the current word count, total words and estimated time remaining over the Carmen cover. See [`scriptable/README.md`](scriptable/README.md) for installation instructions. Because Scriptable cannot read Safari's private local storage, use **Update iPhone widget** in SpeedRead to hand the current statistics to the widget.
+
 On iPhone, open the deployed reader in Safari and use Share → Add to Home Screen. EPUB imports require a modern browser with `DecompressionStream('deflate-raw')`. Imported EPUB/TXT files have a 25 MB input limit and EPUBs an 80 MB expanded-size limit. Encrypted/DRM EPUBs, PDFs, scanned documents and web-URL imports are not supported in this version.
 
 ## Project layout
